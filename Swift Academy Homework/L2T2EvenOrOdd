@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+/**
+ * Created by gerganastoeva on 10/11/17.
+ */
+public class L2T2EvenOrOdd {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = Integer.parseInt(sc.nextLine());
+
+        switch (n) {
+            case 0:
+                System.out.println("even number");
+                break;
+            case 1:
+                System.out.println("odd number");
+                break;
+            case 2:
+                System.out.println("even number");
+                break;
+            case 3:
+                System.out.println("odd number");
+                break;
+            case 4:
+                System.out.println("even number");
+                break;
+            case 5:
+                System.out.println("odd number");
+                break;
+            case 6:
+                System.out.println("even number");
+                break;
+            case 7:
+                System.out.println("odd number");
+                break;
+            case 8:
+                System.out.println("even number");
+                break;
+            case 9:
+                System.out.println("odd number");
+                break;
+            default:
+                System.out.println("Error! The number is too big!");
+        }
+    }
+}
+
