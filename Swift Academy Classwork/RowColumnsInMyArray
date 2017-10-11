@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * Created by gerganastoeva on 10/10/17.
  */
-public class swift1 {
+public class RowColumnsInMyArray {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int[][] myArray = new int[3][4];
