@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+/**
+ * Created by gerganastoeva on 10/10/17.
+ */
+
+
+class 2T6LowestBiggestNumber {
+    public static void main(String args[]) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Insert Count of numbers:");
+
+        int n = Integer.parseInt(scanner.nextLine());
+        int biggest = Integer.MIN_VALUE;
+        int lowest = Integer.MAX_VALUE;
+
+
+        System.out.println("Insert Numbers:");
+
+        for (int i = 1; i <= n; i++) {
+            int current = Integer.parseInt(scanner.nextLine());
+
+            if (current > biggest) {
+                biggest = current;
+            }
+
+            if (current < lowest){
+                lowest = current;
+            }
+        }
+
+        System.out.println("The biggest number is: " + biggest);
+        System.out.println("The lowest number is: " + lowest);
+
+
+    }
+}
+
