@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+
+    public class L3T2EvenOdd {
+
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+
+            System.out.println("Please enter the array size: ");
+
+            int n = scanner.nextInt();
+            int[] myArray = new int[n];
+            String even = "";
+            String odd = "";
+
+
+            for (int i = 0; i < n; i++) {
+                System.out.printf("Element %d: ", i + 1);
+                myArray[i] = scanner.nextInt();
+
+                if (i % 2 == 0) {
+                    even = even + myArray[i] + " ";
+
+                }else{
+                    odd = odd + myArray[i] + " ";
+                 }
+            }
+
+            System.out.println("Elements with Even indexes are: ");
+            System.out.println(even);
+            System.out.println("Elements with Odd indexes are: ");
+            System.out.println(odd);
+
+                }
+            }
