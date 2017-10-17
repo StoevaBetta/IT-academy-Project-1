@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class GreetingMaxCreateMethod {
+    public static String Greeting (String ... elements){
+
+        String name = new String();
+
+
+        for (String element : elements){
+        name += element;
+    }
+
+    return name;
+
+    }
+
+    public static int getMax (int a, int b){
+        Scanner scanner = new Scanner(System.in);
+
+        int max = Integer.MIN_VALUE;
+
+            if (a > b){
+                max = a;
+            }else{
+                max = b;
+
+            }
+return max;
+        }
+
+
+    public static void main(String[] args) {
+
+
+
+        System.out.println("Hello, " + Greeting("Milen, ", "Vesela" + "!"));
+        System.out.println("The biggest number is: " + getMax(-9, -1));
+
+    }
+}
