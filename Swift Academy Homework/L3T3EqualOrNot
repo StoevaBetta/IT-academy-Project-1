@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+
+    public class L3T3EqualOrNot {
+
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.println("Array 1");
+
+            int[] myArray1 = new int[5];
+            int[] myArray2 = new int[5];
+
+
+            for (int i = 0; i < 5; i++) {
+                System.out.printf("Enter element %d: ", i + 1);
+                myArray1[i] = scanner.nextInt();
+
+
+            }
+
+            System.out.println("Array 2");
+
+            for (int i = 0; i < 5; i++) {
+                System.out.printf("Enter element %d: ", i + 1);
+                myArray2[i] = scanner.nextInt();
+            }
+
+            boolean isEqual = true;
+
+            for (int i = 0; i < myArray1.length; i++) {
+                if (myArray1[i] != myArray2[i]) {
+                    isEqual = false;
+                    break;
+
+                }
+            }
+            if (isEqual) {
+                System.out.printf("YES, the arrays are equal");
+            } else {
+                System.out.println("NO, the arrays are not equal");
+            }
+
+        }
+    }
+
+
+
