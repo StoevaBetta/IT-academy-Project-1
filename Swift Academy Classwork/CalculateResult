@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class CalculateResult {
-    public static int calculateResult (int a, int b, int ... elements){
+    public static int calculateResult (int... elements){
     int result = 1;
 
     for (int element : elements){
