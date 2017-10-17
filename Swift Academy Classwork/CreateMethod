@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class CreateMethod {
+    public static double findAverage (double a, double b, double c){
+    return (a + b + c)/3.0;
+
+    }
+
+    public static void main(String[] args) {
+
+        double result = findAverage (1, 2, 3);
+        result = findAverage(5, 10, 15) - 6;;
+        if (findAverage (4, 2, 1) > 10) {
+        System.out.println("neshto");
+    }else{
+            System.out.println("drugo neshto");
+        }
+        System.out.println(findAverage(findAverage(1, 3, 54), 4, 0));
+        System.out.println(findAverage(1,4,6.6));
+    }
+}
