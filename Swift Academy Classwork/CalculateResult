@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class CalculateResult {
+    public static int calculateResult (int a, int b, int ... elements){
+    int result = 1;
+
+    for (int element : elements){
+        result *= element;
+    }
+
+    return result;
+
+    }
+
+    public static void main(String[] args) {
+
+
+
+        System.out.println(calculateResult(2,4, 4, 5, 5, 6));
+
+    }
+}
