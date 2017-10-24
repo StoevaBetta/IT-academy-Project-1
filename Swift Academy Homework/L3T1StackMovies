@@ -1,0 +1,47 @@
+import java.util.Stack;
+
+public class l3T1StackMovies {
+
+    public static void main(String[] args) {
+        Stack<String> movie = new Stack <String>();
+
+        movie.push("The Godsfather, 1972");
+        movie.push("Star Wars, 1977");
+        movie.push("Schindler's list, 1993");
+        movie.push("Titanic, 1997");
+        movie.push("Snowman, 2017");
+
+        System.out.println("The newest movie is: " + movie.peek());
+
+        System.out.println("Which movie was not nominated for Oscar? " + movie.pop());
+
+        movie.push("Arrival, 2016");
+        movie.push("Prisoners, 2014");
+
+        System.out.println("Movies nominated for Oscar: " + movie);
+        System.out.println("Number of movies: " + movie.size());
+        System.out.println("Does Gravity movie exists in the library?: " + movie.contains("Gravity, 2014"));
+
+       // movie.toArray();
+        //System.out.println(movie);
+
+        System.out.println(" ");
+
+        System.out.println("Movies in an Array: ");
+
+       for(int i = movie.size() - 1; i >= 0; i--) {
+          movie.add(movie.get(i));
+        }
+        System.out.println("Movies exist in the Movie Library: ");
+
+        while (movie.size() > 0) {
+            String movieLibrary = movie.pop();
+            System.out.println(movieLibrary);
+        }
+
+        System.out.println(" ");
+
+        movie.clear();
+        System.out.println("The movie library is empty: " + movie.isEmpty());
+    }
+}
