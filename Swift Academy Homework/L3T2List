@@ -1,0 +1,40 @@
+import java.util.Queue;
+import java.util.LinkedList;
+
+/**
+ * Created by gerganastoeva on 10/24/17.
+ */
+public class l3T2List {
+
+    public static void main(String[] args) {
+        Queue<String> activity = new LinkedList<String>();
+
+        activity.offer("Coding");
+        activity.offer("Unit Testing");
+        activity.offer("Implementation");
+        activity.offer("System Testing");
+        activity.offer("Bug logging");
+        activity.offer("Fixing the bug");
+        activity.offer("Retesting");
+
+
+        System.out.println("The first stage of today's test plan is: " + activity.poll());
+        System.out.println("The next stage is a critical one: " + activity.peek());
+        System.out.println("Let's see the plan: " + activity);
+        System.out.println("Does Retesting exist in the plan: " + activity.contains("Retesting"));
+        System.out.println("Does Coding exist in the plan: " + activity.contains("Coding"));
+        System.out.println("Does Stand-up meetings exist in the plan: " + activity.contains("Stand-up meetings"));
+
+        System.out.println("Then let's add Stand-up meetings and Coding in the plan: ");
+        activity.offer("Stand-up Meetings");
+        activity.offer("Coding");
+
+        while (activity.size() > 0) {
+            String sub = activity.poll();
+            System.out.println(sub);
+        }
+        activity.clear();
+        System.out.println("No items left to discuss:");
+    }
+}
+
