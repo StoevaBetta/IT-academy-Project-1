@@ -4,7 +4,7 @@ import java.util.LinkedList;
 /**
  * Created by gerganastoeva on 10/24/17.
  */
-public class l4T2ListTestActivities {
+public class List {
 
     public static void main(String[] args) {
         Queue<String> activity = new LinkedList<String>();
@@ -18,23 +18,30 @@ public class l4T2ListTestActivities {
         activity.offer("Retesting");
 
 
-        System.out.println("The first stage of today's test plan is: " + activity.poll());
-        System.out.println("The next stage is a critical one: " + activity.peek());
-        System.out.println("Let's see the plan: " + activity);
-        System.out.println("Does Retesting exist in the plan: " + activity.contains("Retesting"));
-        System.out.println("Does Coding exist in the plan: " + activity.contains("Coding"));
-        System.out.println("Does Stand-up meetings exist in the plan: " + activity.contains("Stand-up meetings"));
+        System.out.println("The FIRST stage of today's test plan is: " + activity.peek());
+        System.out.println(" ");
 
-        System.out.println("Then let's add Stand-up meetings and Coding in the plan: ");
+        System.out.println("Let's see the PLAN: " + activity);
+        System.out.println(" ");
+        System.out.println("Does Retesting EXIST in the plan: " + activity.contains("Retesting"));
+        System.out.println(" ");
+
+        System.out.println("Does Stand-up Meetings EXIST in the plan: " + activity.contains("Stand-up Meetings"));
+        System.out.println(" ");
+
+        System.out.println("Then let's ADD Stand-up Meetings in the plan: ");
         activity.offer("Stand-up Meetings");
-        activity.offer("Coding");
+        System.out.println(" ");
+
+        System.out.println("The first stage is a critical one, so Supervisor will do it: " + activity.poll() + " deleted");
+        System.out.println(" ");
 
         while (activity.size() > 0) {
             String sub = activity.poll();
             System.out.println(sub);
         }
+        System.out.println(" ");
         activity.clear();
         System.out.println("No items left to discuss:");
     }
 }
-
