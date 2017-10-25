@@ -4,7 +4,7 @@ import java.util.LinkedList;
 /**
  * Created by gerganastoeva on 10/24/17.
  */
-public class l3T2List {
+public class l4T2ListTestActivities {
 
     public static void main(String[] args) {
         Queue<String> activity = new LinkedList<String>();
