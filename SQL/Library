@@ -1,0 +1,15 @@
+CREATE DATABASE IF NOT exists lib1;
+
+USE lib1;
+
+CREATE TABLE IF NOT EXISTS readers
+(
+	EGN BIGINT(10) UNSIGNED PRIMARY KEY UNIQUE NOT NULL,
+    	FirstName VARCHAR(30) NOT NULL,
+    	MiddlName VARCHAR(30),
+    	SureName VARCHAR(30) NOT NULL,
+    	Address VARCHAR(100),
+    	PhoneNumber VARCHAR(15)
+);
+
+explain readers;
