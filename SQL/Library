@@ -1,8 +1,9 @@
-CREATE DATABASE IF NOT exists lib1;
+CREATE DATABASE IF NOT EXISTS cityLibrary;
 
-USE lib1;
+USE cityLibrary;
 
-CREATE TABLE IF NOT EXISTS readers
+
+CREATE TABLE IF NOT EXISTS Bookreaders
 (
 	EGN BIGINT(10) UNSIGNED PRIMARY KEY UNIQUE NOT NULL,
     	FirstName VARCHAR(30) NOT NULL,
@@ -12,4 +13,60 @@ CREATE TABLE IF NOT EXISTS readers
     	PhoneNumber VARCHAR(15)
 );
 
-explain readers;
+INSERT INTO Bookreaders (EGN, FirstName, SureName, Address, PhoneNumber) VALUES
+(1010101010, "Penka", "Petrova", "Sofia", "0889877976"),
+(8211178225, "Kiril", "Mihov", "Popovo", "0878251339"),
+(8902187235, "Nina", "Dobreva", "Valiko Tarnovo", "0776253614"),
+(5901080518, "Milica", "Dancheva-Manolova", "Bobovdol", "0856759564");
+
+
+explain BookReaders;
+
+INSERT INTO Bookreaders (EGN, FirstName, SureName, Address, PhoneNumber) VALUES
+(6403184848, "Joe", "Lee", "Stoke", 335355252);
+
+CREATE TABLE IF NOT EXISTS Publisher 
+(
+  `IdPublisher` INT UNSIGNED PRIMARY KEY UNIQUE NOT NULL auto_increment,
+  `NamePubl` VARCHAR(30) NOT NULL,
+  `AddressPubl` VARCHAR(100) NOT NULL
+);
+
+INSERT INTO Publisher (IdPublisher, NamePubl, AddressPubl) VALUES
+(1200, "Academic press", "London"),
+(1201, "Carlton Book", "London"),
+(1202, "Kogan Page", "Hong Kong"),
+(1203, "WBusiness Books", "Stoke");
+
+CREATE TABLE Autors (
+  idAutor INT UNSIGNED PRIMARY KEY UNIQUE NOT NULL AUTO_INCREMENT,
+  NameAutor VARCHAR(30) NOT NULL,
+  Country VARCHAR(20) NOT NULL
+  );
+  
+  explain Autors;
+  
+  INSERT INTO Autors (idAutor, NameAutor, Country) VALUES
+  (1, "Al Reace", "England"),
+  (2, "Tolkien", "Engalnd"),
+  (3, "Jane Austen", "England"),
+  (4, "Tolkien", "England");
+  
+CREATE TABLE Books (
+  idBook BIGINT(10) UNSIGNED PRIMARY KEY UNIQUE NOT NULL,
+  idAuthor INT(10) UNSIGNED,
+  IdPublisher INT(10) UNSIGNED,
+  Title VARCHAR(30) NOT NULL,
+  Price DECIMAL(2) NOT NULL,
+  Genre VARCHAR(20) NOT NULL,
+  
+    FOREIGN KEY (idAuthor)
+    REFERENCES Autors (idAutor),
+    
+    FOREIGN KEY (idPublisher)
+    REFERENCES publisher (idPublisher)
+);
+    
+    explain Books;
+
+  
