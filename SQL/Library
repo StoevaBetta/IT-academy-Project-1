@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS cityLibrary;
 
-USE cityLibrary;
 
+USE cityLibrary;
 
 CREATE TABLE IF NOT EXISTS Bookreaders
 (
@@ -47,14 +47,14 @@ CREATE TABLE Autors (
   explain Autors;
   
   INSERT INTO Autors (idAutor, NameAutor, Country) VALUES
-  (1, "Al Reace", "England"),
+  (1, "Al Ries", "England"),
   (2, "Tolkien", "Engalnd"),
   (3, "Jane Austen", "England"),
-  (4, "Tolkien", "England");
+  (4, "Charles Dickens", "England");
   
 CREATE TABLE Books (
   idBook BIGINT(10) UNSIGNED PRIMARY KEY UNIQUE NOT NULL,
-  idAuthor INT(10) UNSIGNED,
+  idAuthor INT(10) UNSIGNED,Books
   IdPublisher INT(10) UNSIGNED,
   Title VARCHAR(30) NOT NULL,
   Price DECIMAL(2) NOT NULL,
@@ -69,4 +69,52 @@ CREATE TABLE Books (
     
     explain Books;
 
+  INSERT INTO Books (idBook, idAuthor, IdPublisher, Title, Price, Genre) VALUES
+  (100, 2, 1203, "The Hobbit", 20, "Advanture"),
+  (101, 2, 1203, "The Lord of the Rings", 15, "Fantasy"),
+  (102, 3, 1201, "Pride and prejudice", 18, "Romance"),
+  (103, 1, 1200, "Focus", 19, "Science" );
   
+  
+  CREATE TABLE RentAbook (
+  EGN BIGINT(10) UNSIGNED NOT NULL,
+  idBook BIGINT(10) UNSIGNED UNIQUE NOT NULL,
+  RentDate DATE NOT NULL,
+  Duration INT NULL,
+  GivenBack TINYINT(1) NULL,
+  
+    FOREIGN KEY (EGN)
+    REFERENCES Bookreaders (EGN)
+    
+    FOREIGN KEY (idBook)
+    REFERENCES Books (idBook)
+);
+
+INSERT INTO RentAbook (EGN, idBook, RentDate, Duration, GivenBack) VALUES
+(1010101010, 103, STR_TO_DATE('01-03-2017', '%d-%m-%Y'), 3, 1),
+(8902187235, 100, STR_TO_DATE('01-11-2017', '%d-%m-%Y'), 10, 0),
+(5901080518, 102, STR_TO_DATE('20-06-2017', '%d-%m-%Y'), 5, 1);
+  
+  
+SELECT idAuthor, Title FROM Books
+ORDER BY Title DESC;
+    
+DELETE FROM Bookreaders WHERE FirstName like 'm%';
+   
+   
+   
+SELECT AVG(Price) AS Average_Price FROM Books WHERE books.idAuthor=books.idAuthor;
+    
+    
+
+SELECT Bookreaders.FirstName AS Name, Books.Title AS Title, Books.Price AS price,
+				RentABook.RentDate + RentABook.Duration AS Date1,
+				DATE_FORMAT('20171111','%d/%m/%Y') AS DateBackAtLibrary
+FROM Bookreaders, Books, RentAbook
+WHERE 
+				(RentAbook.GivenBack = 0) AND
+                (Bookreaders.EGN = RentAbook.EGN) AND
+                (Books.idBook = RentAbook.idBook)
+               
+
+
