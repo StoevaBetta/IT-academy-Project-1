@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+public class Task1 {
+
+    public static void printInstructon(String content) {
+        System.out.printf("Здравейте, тази програма има три основни задачи:\n" +
+                "\t1. Обръщане на число\n" +
+                "\t2. Намиране на факториел\n" +
+                "\t3. Намиране на средно аритметично \n" +
+                "\t4. Край на програмата\n" +
+                "\tМоля, направете своя избор:\n", content);
+
+    }
+
+    public static void findReversed(int a) {
+        while (a != 0) {
+            int reversed = a % 10;
+            a = a / 10;
+            System.out.print(reversed);
+        }
+    }
+
+    public static int findFactorial(int y) {
+        if (y == 0) {
+            return 1;
+        }
+        if (y > 0) {
+
+            return y * findFactorial(y - 1);
+
+        } else {
+
+            return y * findFactorial(y + 1);
+        }
+    }
+
+    public static double findAverage(int b, int c, int d) {
+        return ((b + c + d) / 3.0);
+    }
+
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        printInstructon(" ");
+        System.out.print("Изберете число от 1 до 4: ");
+        int n = scanner.nextInt();
+        int a = 0;
+        int y = 1;
+        int b = 0;
+        int c = 0;
+        int d = 0;
+        if (n == 1) {
+            System.out.println("Въведете число за извеждане в ОБРАТЕН РЕД");
+           a = scanner.nextInt();
+           findReversed(a);
+        } else if (n == 2) {
+            System.out.println("Въведете число за извеждане на ФАКТОРИЕЛ");
+            y = scanner.nextInt();
+            System.out.println(findFactorial(y));
+        } else if (n == 3) {
+            System.out.println("Въведете 3 числа за извеждане на СРЕДНОАРИТМЕТИЧНО");
+            b = scanner.nextInt();
+            c = scanner.nextInt();
+            d = scanner.nextInt();
+            System.out.println("Средноаритметично: " + findAverage(b,c,d));
+        } else if (n == 4) {
+            System.out.println("Край на пограмата");
+        }
+
+    }
+
+}
