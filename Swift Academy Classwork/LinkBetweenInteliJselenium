@@ -1,0 +1,45 @@
+package Selenium;
+
+
+
+import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+
+
+public class MyFirstSeleniumTest {
+
+    public static void main(String[] args) {
+
+        System.setProperty("webdriver.gecko.driver", "/Users/gerganastoeva/Downloads/geckodriver");
+
+        WebDriver driver = new FirefoxDriver();
+
+
+
+        String url = "http://mail.bg/";
+
+
+
+        driver.get(url);
+
+        driver.manage().window().maximize();
+
+
+
+        if (driver.getTitle().equals("Mail.bg: Вход")) {
+
+            System.out.println("Title is correct");
+
+        } else {
+
+            System.out.println("The title is not correct. Expected: Mail.bg but got: " + driver.getTitle());
+
+        }
+
+
+
+    }
+
+}
