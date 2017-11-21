@@ -1,0 +1,50 @@
+package Selenium;
+
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
+
+
+public class MyFirstSeleniumTest {
+
+    public static void main(String[] args) {
+
+        System.setProperty("webdriver.gecko.driver", "/Users/gerganastoeva/Downloads/geckodriver");
+
+        WebDriver driver = new FirefoxDriver();
+
+
+
+        driver.get("http://toolsqa.wpengine.com/automation-practice-form/");
+
+        Select continents = new Select(driver.findElement(By.id("continents")));
+        continents.selectByIndex(2);
+        continents.selectByVisibleText("Europe");
+
+        Select seleniumCommands = new Select(driver.findElement(By.id("selenium_commands")));
+
+        if (seleniumCommands.isMultiple()) {
+            System.out.println("Multiple");
+        } else {
+            System.out.println("Not a multiple dropdown");
+        }
+
+        seleniumCommands.selectByIndex(0);
+        seleniumCommands.deselectByIndex(0);
+
+        List<WebElement> list = seleniumCommands.getOptions();
+        for (WebElement element : list) {
+            seleniumCommands.selectByVisibleText(element.getText());
+        }
+
+        driver.close();
+
+    }
+}
